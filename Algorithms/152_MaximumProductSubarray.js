@@ -21,5 +21,3 @@ var maxProduct = function(nums) {
     }
     return res
 };
-
-console.log("wad")
