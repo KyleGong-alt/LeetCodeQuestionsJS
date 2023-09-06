@@ -10,30 +10,14 @@
  * @return {ListNode}
  */
 var reverseList = function(head) {
-    let newArray = [];
+    let current = head; // Initalize a new head
+    let previous = null;  
 
-    // Create an array from Linked List
-    if (head) {
-        while(true) {
-            if(head.next !== null) {
-                newArray.push(head.val);
-                head = head.next;
-            } else {
-                newArray.push(head.val);
-                break;
-            }
-        }
-    } else { 
-        return head; //return [] if head is empty
+    while(current) { // while there are still Linked Values 
+        let tempNode = current.next; // Save the next nodes to a temp element
+        current.next = previous; // Set next pointer to previous nodes
+        previous = current; // Move previous pointer to current node
+        current = tempNode; // Move the current pointer to the previous saved next nodes
     }
-
-    newArray.reverse(); // Reverse the Array
-
-    let newHead = new ListNode(newArray[0]); // Create a new head
-    let current = newHead; // Lets you track of the last node
-    for (let x = 1; x < newArray.length; x++) { // Head is already initalized so 1st index
-        current.next = new ListNode(newArray[x]) // Creates next iteration to append to
-        current = current.next; // Update current so it can push
-    }
-    return newHead;
+    return previous;
 };
