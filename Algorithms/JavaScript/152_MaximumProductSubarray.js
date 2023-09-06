@@ -7,9 +7,9 @@ var maxProduct = function(nums) {
     let curMin = nums[0];
     let curMax = nums[0];
     let subArray = [nums[0]];
-    
+
     for (let x = 1; x < nums.length; x++) {
-        let localMin = Math.min(curMax * nums[x], nums[x], curMin * nums[x]);
+        let localMin = Math.min(curMax * nums[x], nums[x], curMin * nums[x]);  
         let localMax = Math.max(curMax * nums[x], nums[x], curMin * nums[x]);
         curMin = Math.min(localMax, localMin);
         curMax = Math.max(localMax, localMin);
