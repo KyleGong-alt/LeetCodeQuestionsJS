@@ -28,5 +28,6 @@ var isPalindrome = function(head) {
             return false;
         }
     }
+    
     return true;
 };
